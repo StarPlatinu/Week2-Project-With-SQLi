@@ -1,5 +1,5 @@
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <h1></h1>
