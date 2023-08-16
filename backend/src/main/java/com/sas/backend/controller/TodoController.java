@@ -78,5 +78,12 @@ public class TodoController {
         return ResponseEntity.ok(updatedTodo);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+    @GetMapping("/search")
+    public ResponseEntity<List<TodoDto>> searchTodos(@RequestParam("searchTerm") String searchTerm) {
+        List<TodoDto> todos = todoService.searchTodos(searchTerm);
+        return ResponseEntity.ok(todos);
+    }
+
 }
 

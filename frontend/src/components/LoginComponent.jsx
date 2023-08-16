@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { loginAPICall, saveLoggedInUser, storeToken } from '../services/AuthService';
 import { useNavigate } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const LoginComponent = () => {
 
     const [username, setUsername] = useState('')
@@ -22,7 +23,7 @@ const LoginComponent = () => {
 
             saveLoggedInUser(username);
             navigator("/todos")
-
+            
             window.location.reload(false);
         }).catch(error => {
             console.error(error);

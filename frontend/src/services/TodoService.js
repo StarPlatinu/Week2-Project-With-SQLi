@@ -31,3 +31,5 @@ export const deleteTodo = (id) => axios.delete(BASE_REST_API_URL + '/' + id)
 export const completeTodo = (id) => axios.patch(BASE_REST_API_URL + '/' + id + '/complete')
 
 export const inCompleteTodo = (id) => axios.patch(BASE_REST_API_URL + '/' + id + '/in-complete')
+
+export const searchTodos = (searchTerm) => axios.get(BASE_REST_API_URL + '/search', { params: { searchTerm } });

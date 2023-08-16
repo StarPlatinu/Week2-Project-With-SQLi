@@ -101,4 +101,13 @@ public class TodoServiceImpl implements TodoService {
 
         return modelMapper.map(updatedTodo, TodoDto.class);
     }
+
+    @Override
+    public List<TodoDto> searchTodos(String searchTerm) {
+
+        List<Todo> todos = todoRepository.findByTitleContainingIgnoreCase(searchTerm);
+
+        return todos.stream().map((todo) -> modelMapper.map(todo, TodoDto.class))
+                .collect(Collectors.toList());
+    }
 }
