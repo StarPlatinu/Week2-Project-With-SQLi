@@ -6,6 +6,7 @@ import com.sas.backend.exception.ResourceNotFoundException;
 import com.sas.backend.repository.TodoRepository;
 import com.sas.backend.service.TodoService;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
