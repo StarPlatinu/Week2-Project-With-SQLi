@@ -1,34 +1,29 @@
 import React, { useState } from 'react'
-import { loginAPICall, saveLoggedInUser, storeToken } from '../services/AuthService';
+import { registerAPICall } from '../service/AuthService'
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-const LoginComponent = () => {
+const Register = () => {
 
+    const [name, setName] = useState('')
     const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
     const navigator = useNavigate();
 
-    async function handleLoginForm(e){
+    function handleRegistrationForm(e){
 
         e.preventDefault();
 
-        await loginAPICall(username, password).then((response) => {
+        const register = {name, username, email, password}
+
+        console.log(register);
+
+        registerAPICall(register).then((response) => {
             console.log(response.data);
-
-            //const token = 'Basic ' + window.btoa(username + ":" + password);
-            const token = 'Bearer ' + response.data.accessToken;
-            storeToken(token);
-
-            saveLoggedInUser(username);
-            navigator("/todos")
-            
-            window.location.reload(true);
+            navigator("/login")
         }).catch(error => {
             console.error(error);
-        })
 
+        })
     }
 
   return (
@@ -38,14 +33,28 @@ const LoginComponent = () => {
             <div className='col-md-6 offset-md-3'>
                 <div className='card'>
                     <div className='card-header'>
-                        <h2 className='text-center'> Login Form </h2>
+                        <h2 className='text-center'> User Registration Form </h2>
                     </div>
 
                     <div className='card-body'>
                         <form>
+                            <div className='row mb-3'>
+                                <label className='col-md-3 control-label'> Name </label>
+                                <div className='col-md-9'>
+                                    <input
+                                        type='text'
+                                        name='name'
+                                        className='form-control'
+                                        placeholder='Enter name'
+                                        value={name}
+                                        onChange={ (e) => setName(e.target.value)}
+                                    >
+                                    </input>
+                                </div>
+                            </div>
 
                             <div className='row mb-3'>
-                                <label className='col-md-3 control-label'> Username or Email</label>
+                                <label className='col-md-3 control-label'> Username </label>
                                 <div className='col-md-9'>
                                     <input
                                         type='text'
@@ -54,6 +63,22 @@ const LoginComponent = () => {
                                         placeholder='Enter username'
                                         value={username}
                                         onChange={ (e) => setUsername(e.target.value)}
+                                    >
+                                    </input>
+                                </div>
+                            </div>
+
+
+                            <div className='row mb-3'>
+                                <label className='col-md-3 control-label'> Email </label>
+                                <div className='col-md-9'>
+                                    <input
+                                        type='text'
+                                        name='email'
+                                        className='form-control'
+                                        placeholder='Enter email address'
+                                        value={email}
+                                        onChange={ (e) => setEmail(e.target.value)}
                                     >
                                     </input>
                                 </div>
@@ -75,7 +100,7 @@ const LoginComponent = () => {
                             </div>
 
                             <div className='form-group mb-3'>
-                                <button className='btn btn-primary' onClick={ (e) => handleLoginForm(e)}>Submit</button>
+                                <button className='btn btn-primary' onClick={ (e) => handleRegistrationForm(e)}>Submit</button>
 
                             </div>
                         </form>
@@ -91,4 +116,4 @@ const LoginComponent = () => {
   )
 }
 
-export default LoginComponent
+export default Register

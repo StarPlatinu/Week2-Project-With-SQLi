@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { loginAPICall, saveLoggedInUser, storeToken } from '../services/AuthService';
+import { loginAPICall, saveLoggedInUser, storeToken } from '../service/AuthService';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const LoginComponent = () => {
+const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -20,10 +20,9 @@ const LoginComponent = () => {
             //const token = 'Basic ' + window.btoa(username + ":" + password);
             const token = 'Bearer ' + response.data.accessToken;
             storeToken(token);
-
+      
             saveLoggedInUser(username);
             navigator("/todos")
-            
             window.location.reload(true);
         }).catch(error => {
             console.error(error);
@@ -91,4 +90,4 @@ const LoginComponent = () => {
   )
 }
 
-export default LoginComponent
+export default Login

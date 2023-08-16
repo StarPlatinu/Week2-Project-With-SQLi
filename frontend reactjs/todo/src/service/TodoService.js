@@ -15,8 +15,8 @@ axios.interceptors.request.use(function (config) {
     return config;
   }, function (error) {
     // Do something with request error
-    //return Promise.reject(error);
-    return error;
+  return Promise.reject(error);
+  
   });
   
 export const getAllTodos = () => axios.get(BASE_REST_API_URL)

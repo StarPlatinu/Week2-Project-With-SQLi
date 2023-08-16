@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+     <BrowserRouter>
         <HeaderComponent />
           <Routes>
               {/* http://localhost:8080 */}
