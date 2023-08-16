@@ -73,7 +73,7 @@ const ListTodoComponent = () => {
 
   return (
     <div className='container'>
-        <h2 className='text-center'>List of Todos</h2>
+        <h2 className='text-center mt-4'>Well Come To Todo</h2>
         <button className='btn btn-primary mb-2' onClick={addNewTodo}>Add Todo</button>
         <div>
             <div className='d-flex justify-content-center m-3'>
@@ -107,7 +107,7 @@ const ListTodoComponent = () => {
                                     <button className='btn btn-info' onClick={() => updateTodo(todo.id)}>Update</button>
                                     <button className='btn btn-danger' onClick={() => removeTodo(todo.id)} style={ { marginLeft: "10px" }} >Delete</button>
                                     <button className='btn btn-success' onClick={() => markCompleteTodo(todo.id)} style={ { marginLeft: "10px" }} >Complete</button>
-                                    <button className='btn btn-info' onClick={() => markInCompleteTodo(todo.id)} style={ { marginLeft: "10px" }} >In Complete</button>
+                                    <button className='btn btn-warning' onClick={() => markInCompleteTodo(todo.id)} style={ { marginLeft: "10px" }} >In Complete</button>
                                 </td>
                             </tr>
                         )

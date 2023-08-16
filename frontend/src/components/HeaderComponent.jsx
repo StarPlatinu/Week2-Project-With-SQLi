@@ -2,7 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { isUserLoggedIn, logout } from '../services/AuthService'
 import { useNavigate } from 'react-router-dom'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 const HeaderComponent = () => {
 
     const isAuth = isUserLoggedIn();
@@ -18,7 +19,7 @@ const HeaderComponent = () => {
     <div>
         <header>
             <nav className='navbar navbar-expand-md navbar-dark bg-primary'>
-                <div>
+                <div className='ms-1'>
                     <a href='http://localhost:3000' className='navbar-brand'>
                         Todo Management Application
                     </a>
@@ -29,7 +30,7 @@ const HeaderComponent = () => {
                         {
                             isAuth &&                         
                             <li className='nav-item'>
-                            <NavLink to="/todos" className="nav-link">Todos</NavLink>
+                            <NavLink to="/todos" className="nav-link"><FontAwesomeIcon icon={faCoffee} /></NavLink>
                         </li>
                         }
 
