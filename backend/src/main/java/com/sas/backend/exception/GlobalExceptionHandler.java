@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(TodoAPIException.class)
     public ResponseEntity<ErrorDetails> handleTodoAPIException(TodoAPIException exception,
                                                                WebRequest webRequest){
 

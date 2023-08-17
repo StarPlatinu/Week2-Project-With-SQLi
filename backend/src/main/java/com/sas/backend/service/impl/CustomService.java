@@ -4,10 +4,7 @@ import com.sas.backend.dto.TodoDto;
 import com.sas.backend.service.CustomerService;
 import com.sas.backend.service.TodoService;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,20 +23,30 @@ public class CustomService implements CustomerService {
     }
     @Override
     public List<TodoDto> searchTodos(String searchTerm) throws SQLException {
+        List<TodoDto> todos = new ArrayList<>();
+        String sql = "SELECT * FROM todos t WHERE t.title = '" + searchTerm + "'";
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM todos t WHERE t.title = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, searchTerm);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            List<TodoDto> todos = new ArrayList<>();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 TodoDto todoDto = new TodoDto();
-                // Populate todoDto from resultSet
+                todoDto.setTitle(resultSet.getString("title"));
+                todoDto.setDescription(resultSet.getString("description"));
+                todoDto.setCompleted(resultSet.getBoolean("completed"));
                 todos.add(todoDto);
             }
 
-            return todos;
+        } catch (SQLException e) {
+            // Handle the SQL syntax error here
+            throw new SQLException(" String sql = \"select \"\n" +
+                    "      + \"first_name,last_name,username \"\n" +
+                    "      + \"from users where userid = '\"\n" +
+                    "      + userId \n" +
+                    "      + \"'\";\n" +
+                    "    Connection c = dataSource.getConnection();\n" +
+                    "    ResultSet rs = c.createStatement().executeQuery(sql);.", e);
         }
+       return todos;
     }
+
 }
