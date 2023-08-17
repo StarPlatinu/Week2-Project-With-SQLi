@@ -2,6 +2,7 @@ package com.sas.backend.service;
 
 import com.sas.backend.dto.TodoDto;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface TodoService {
@@ -20,5 +21,5 @@ public interface TodoService {
 
     TodoDto inCompleteTodo(Long id);
 
-    List<TodoDto> searchTodos(String searchTerm);
+    List<TodoDto> searchTodos(String searchTerm) throws SQLException;
 }

@@ -5,10 +5,12 @@ import com.sas.backend.entity.Todo;
 import com.sas.backend.exception.ResourceNotFoundException;
 import com.sas.backend.repository.TodoRepository;
 import com.sas.backend.service.TodoService;
+import com.zaxxer.hikari.HikariDataSource;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -103,8 +105,9 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public List<TodoDto> searchTodos(String searchTerm) {
+    public List<TodoDto> searchTodos(String searchTerm) throws SQLException {
 
+        HikariDataSource dataSource = null;
         List<Todo> todos = todoRepository.findByTitleContainingIgnoreCase(searchTerm);
 
         return todos.stream().map((todo) -> modelMapper.map(todo, TodoDto.class))

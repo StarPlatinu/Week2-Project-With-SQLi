@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "./AuthService";
 
-const BASE_REST_API_URL = 'http://localhost:8090/api/todos';
+const BASE_REST_API_URL = 'http://localhost:9090/api/todos';
 
 // export function getAllTodos(){
 //     return axios.get(BASE_REST_API_URL);

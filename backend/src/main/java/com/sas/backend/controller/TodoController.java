@@ -2,12 +2,14 @@ package com.sas.backend.controller;
 
 import com.sas.backend.dto.TodoDto;
 import com.sas.backend.service.TodoService;
+import com.sas.backend.service.impl.CustomService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -77,11 +79,11 @@ public class TodoController {
         TodoDto updatedTodo = todoService.inCompleteTodo(todoId);
         return ResponseEntity.ok(updatedTodo);
     }
-
+    private CustomService customService;
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("/search")
-    public ResponseEntity<List<TodoDto>> searchTodos(@RequestParam("searchTerm") String searchTerm) {
-        List<TodoDto> todos = todoService.searchTodos(searchTerm);
+    public ResponseEntity<List<TodoDto>> searchTodos(@RequestParam("searchTerm") String searchTerm) throws SQLException {
+        List<TodoDto> todos = customService.searchTodos(searchTerm);
         return ResponseEntity.ok(todos);
     }
 

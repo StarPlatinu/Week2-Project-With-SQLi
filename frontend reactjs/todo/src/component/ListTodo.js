@@ -110,10 +110,10 @@ const ListTodo = () => {
                                 <td>{todo.description}</td>
                                 <td>{todo.completed ? 'YES': 'NO'}</td>
                                 <td>
-                                    <button className='btn btn-info' onClick={() => updateTodo(todo.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
-                                    <button className='btn btn-danger' onClick={() => removeTodo(todo.id)} style={ { marginLeft: "10px" }} ><FontAwesomeIcon icon={faTrash} /></button>
-                                    <button className='btn btn-success' onClick={() => markCompleteTodo(todo.id)} style={ { marginLeft: "10px" }} ><FontAwesomeIcon icon={faCheck} /></button>
-                                    <button className='btn btn-warning' onClick={() => markInCompleteTodo(todo.id)} style={ { marginLeft: "10px" }} ><FontAwesomeIcon icon={faX} /></button>
+                                    <button className='btn btn-info m-1' onClick={() => updateTodo(todo.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
+                                    <button className='btn btn-danger m-1' onClick={() => removeTodo(todo.id)} style={ { marginLeft: "10px" }} ><FontAwesomeIcon icon={faTrash} /></button>
+                                    <button className='btn btn-success m-1' onClick={() => markCompleteTodo(todo.id)} style={ { marginLeft: "10px" }} ><FontAwesomeIcon icon={faCheck} /></button>
+                                    <button className='btn btn-warning m-1' onClick={() => markInCompleteTodo(todo.id)} style={ { marginLeft: "10px" }} ><FontAwesomeIcon icon={faX} /></button>
                                 </td>
                             </tr>
                         )
