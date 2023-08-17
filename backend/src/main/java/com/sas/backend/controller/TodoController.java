@@ -1,6 +1,8 @@
 package com.sas.backend.controller;
 
 import com.sas.backend.dto.TodoDto;
+import com.sas.backend.entity.Todo;
+import com.sas.backend.exception.custom.NotFoundException;
 import com.sas.backend.service.TodoService;
 import com.sas.backend.service.impl.CustomService;
 import lombok.AllArgsConstructor;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
@@ -34,7 +37,7 @@ public class TodoController {
     // Build Get Todo REST API
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("{id}")
-    public ResponseEntity<TodoDto> getTodo(@PathVariable("id") Long todoId){
+    public ResponseEntity<TodoDto> getTodo(@PathVariable("id") Long todoId) throws NotFoundException {
         TodoDto todoDto = todoService.getTodo(todoId);
         return new ResponseEntity<>(todoDto, HttpStatus.OK);
     }
@@ -59,7 +62,7 @@ public class TodoController {
     // Build Delete Todo REST API
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteTodo(@PathVariable("id") Long todoId){
+    public ResponseEntity<String> deleteTodo(@PathVariable("id") Long todoId) throws NotFoundException {
         todoService.deleteTodo(todoId);
         return ResponseEntity.ok("Todo deleted successfully!.");
     }

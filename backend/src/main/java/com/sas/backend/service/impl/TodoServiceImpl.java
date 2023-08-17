@@ -1,8 +1,10 @@
 package com.sas.backend.service.impl;
 
 import com.sas.backend.dto.TodoDto;
+import com.sas.backend.entity.CustomError;
 import com.sas.backend.entity.Todo;
 import com.sas.backend.exception.ResourceNotFoundException;
+import com.sas.backend.exception.custom.NotFoundException;
 import com.sas.backend.repository.TodoRepository;
 import com.sas.backend.service.TodoService;
 import com.zaxxer.hikari.HikariDataSource;
@@ -38,10 +40,10 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public TodoDto getTodo(Long id) {
+    public TodoDto getTodo(Long id) throws NotFoundException {
 
         Todo todo = todoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Todo not found with id:" + id));
+                .orElseThrow(() -> new NotFoundException(CustomError.builder().code("404").message("User not found at  "+id+"\n select id, completed,description,title from todos where id = "+id).build()));
 
         return modelMapper.map(todo, TodoDto.class);
     }
@@ -70,10 +72,10 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void deleteTodo(Long id) {
+    public void deleteTodo(Long id) throws NotFoundException {
 
         Todo todo = todoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Todo not found with id : " + id));
+                .orElseThrow(() -> new NotFoundException(CustomError.builder().code("404").message("User not found at  "+id+"\n select id, completed,description,title from todos where id = "+id).build()));
 
         todoRepository.deleteById(id);
     }
