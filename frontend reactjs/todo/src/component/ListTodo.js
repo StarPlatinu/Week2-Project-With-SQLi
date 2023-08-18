@@ -96,7 +96,7 @@ const ListTodo = () => {
 
   return (
     <div className='container-fluit'>
-        <h2 className='text-center mt-4'>Well Come To Todo</h2>
+        <h2 className='text-center mt-4'>Welcome To Todo</h2>
       
         <div className='m-5'>
         <button className='btn btn-primary mb-2' onClick={addNewTodo}><FontAwesomeIcon icon={faCirclePlus} />Add Todo</button>
