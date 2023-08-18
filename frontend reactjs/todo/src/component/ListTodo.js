@@ -97,7 +97,11 @@ const ListTodo = () => {
   return (
     <div className='container-fluit'>
         <h2 className='text-center mt-4'>Welcome To Todo</h2>
-      
+      <div className='row '>
+        <div className='alert alert-info text-center border border-info'>
+        <p>Todo List không chỉ là ứng dụng quản lý công việc, mà còn là người bạn đồng hành trong hành trình đạt được mục tiêu và biến giấc mơ thành hiện thực!</p>
+        </div>
+      </div>
         <div className='m-5'>
         <button className='btn btn-primary mb-2' onClick={addNewTodo}><FontAwesomeIcon icon={faCirclePlus} />Add Todo</button>
         <div className='d-flex justify-content-center m-3'>

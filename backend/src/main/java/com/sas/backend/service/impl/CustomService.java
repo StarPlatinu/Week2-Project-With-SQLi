@@ -24,7 +24,7 @@ public class CustomService implements CustomerService {
     @Override
     public List<TodoDto> searchTodos(String searchTerm) throws SQLException {
         List<TodoDto> todos = new ArrayList<>();
-        String sql = "SELECT * FROM todos t WHERE t.title = '" + searchTerm + "'";
+        String sql = "SELECT title,description,completed FROM todos t WHERE t.title = '" + searchTerm + "'";
         try (Connection connection = dataSource.getConnection()) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
@@ -43,6 +43,7 @@ public class CustomService implements CustomerService {
                     "      + \"from users where userid = '\"\n" +
                     "      + userId \n" +
                     "      + \"'\";\n" +
+                    sql +
                     "    Connection c = dataSource.getConnection();\n" +
                     "    ResultSet rs = c.createStatement().executeQuery(sql);.", e);
         }

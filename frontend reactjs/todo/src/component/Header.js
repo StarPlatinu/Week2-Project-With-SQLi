@@ -55,7 +55,11 @@ const Header = () => {
                     {
                         isAuth &&    
                         <li className='nav-item'>
+                        <div className="m-1 d-flex">
                         <NavLink to="/login" className="nav-link" onClick={handleLogout}>Logout</NavLink>
+                        
+                      <img src="https://picsum.photos/40" class="img-fluid page-header rounded-circle" alt="Responsive image" />
+                        </div>
                     </li>
                     }
                     </ul>

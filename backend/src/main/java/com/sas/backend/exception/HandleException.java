@@ -1,6 +1,7 @@
 package com.sas.backend.exception;
 
 import com.sas.backend.entity.CustomError;
+import com.sas.backend.exception.custom.BadRequestException;
 import com.sas.backend.exception.custom.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,4 +17,12 @@ public class HandleException {
     public Map<String, CustomError> NotFoundException(NotFoundException ex){
       return ex.getErrors();
   }
+
+  @ExceptionHandler(BadRequestException.class)
+  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+  public Map<String, CustomError> BadRequestException(BadRequestException ex){
+    return ex.getErrors();
+  }
+
+
 }
