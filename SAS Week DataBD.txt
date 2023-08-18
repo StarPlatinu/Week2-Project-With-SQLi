@@ -1,0 +1,88 @@
+Create schema week2;
+use week2;
+INSERT INTO todos (completed, description, title)
+VALUES 
+(0, 'SQL injection vulnerability in WHERE clause allowing retrieval of hidden data', 'SQL injection'),
+(0, 'SQL injection vulnerability allowing login bypass', 'SQL injection'),
+(0, 'SQL injection attack, querying the database type and version on Oracle', 'SQL injection'),
+(0, 'SQL injection attack, querying the database type and version on MySQL and Microsoft', 'SQL injection'),
+(0, 'SQL injection attack, listing the database contents on non-Oracle databases', 'SQL injection'),
+(0, 'SQL injection attack, listing the database contents on Oracle', 'SQL injection'),
+(0, 'SQL injection UNION attack, determining the number of columns returned by the query', 'SQL injection'),
+(0, 'SQL injection UNION attack, finding a column containing text', 'SQL injection'),
+(0, 'SQL injection UNION attack, retrieving data from other tables', 'SQL injection'),
+(0, 'SQL injection UNION attack, retrieving multiple values in a single column', 'SQL injection'),
+(0, 'Blind SQL injection with conditional responses', 'SQL injection'),
+(0, 'Blind SQL injection with conditional errors', 'SQL injection'),
+(0, 'Blind SQL injection with out-of-band interaction', 'SQL injection'),
+(0, 'Visible error-based SQL injection', 'SQL injection'),
+(0, 'Blind SQL injection with out-of-band data exfiltration', 'SQL injection'),
+(0, 'Blind SQL injection with time delays', 'SQL injection'),
+(0, 'Blind SQL injection with time delays and information retrieval', 'SQL injection'),
+(0, 'SQL injection with filter bypass via XML encoding', 'SQL injection');
+
+INSERT INTO todos (completed, description, title)
+VALUES 
+(0, 'Reflected XSS into HTML context with nothing encoded', 'Cross-site scripting'),
+(0, 'Stored XSS into HTML context with nothing encoded', 'Cross-site scripting'),
+(0, 'DOM XSS in document.write sink using source location.search', 'Cross-site scripting'),
+(0, 'DOM XSS in innerHTML sink using source location.search', 'Cross-site scripting'),
+(0, 'DOM XSS in jQuery anchor href attribute sink using location.search source', 'Cross-site scripting'),
+(0, 'DOM XSS in jQuery selector sink using a hashchange event', 'Cross-site scripting'),
+(0, 'Reflected XSS into attribute with angle brackets HTML-encoded', 'Cross-site scripting'),
+(0, 'Stored XSS into anchor href attribute with double quotes HTML-encoded', 'Cross-site scripting'),
+(0, 'Reflected XSS into a JavaScript string with angle brackets HTML encoded', 'Cross-site scripting'),
+(0, 'DOM XSS in document.write sink using source location.search inside a select element', 'Cross-site scripting'),
+(0, 'DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded', 'Cross-site scripting'),
+(0, 'Reflected DOM XSS', 'Cross-site scripting'),
+(0, 'Stored DOM XSS', 'Cross-site scripting'),
+(0, 'Reflected XSS into HTML context with most tags and attributes blocked', 'Cross-site scripting'),
+(0, 'Reflected XSS into HTML context with all tags blocked except custom ones', 'Cross-site scripting'),
+(0, 'Reflected XSS with some SVG markup allowed', 'Cross-site scripting'),
+(0, 'Reflected XSS in canonical link tag', 'Cross-site scripting'),
+(0, 'Reflected XSS into a JavaScript string with single quote and backslash escaped', 'Cross-site scripting'),
+(0, 'Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped', 'Cross-site scripting'),
+(0, 'Stored XSS into onclick event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped', 'Cross-site scripting'),
+(0, 'Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped', 'Cross-site scripting'),
+(0, 'Exploiting cross-site scripting to steal cookies', 'Cross-site scripting'),
+(0, 'Exploiting cross-site scripting to capture passwords', 'Cross-site scripting'),
+(0, 'Exploiting XSS to perform CSRF', 'Cross-site scripting'),
+(0, 'Reflected XSS with AngularJS sandbox escape without strings', 'Cross-site scripting'),
+(0, 'Reflected XSS with AngularJS sandbox escape and CSP', 'Cross-site scripting'),
+(0, 'Reflected XSS with event handlers and href attributes blocked', 'Cross-site scripting'),
+(0, 'Reflected XSS in a JavaScript URL with some characters blocked', 'Cross-site scripting'),
+(0, 'Reflected XSS protected by very strict CSP, with dangling markup attack', 'Cross-site scripting'),
+(0, 'Reflected XSS protected by CSP, with CSP bypass', 'Cross-site scripting');
+
+INSERT INTO todos (completed, description, title)
+VALUES 
+(0, 'CSRF vulnerability with no defenses', 'Cross-site request forgery'),
+(0, 'CSRF where token validation depends on request method', 'Cross-site request forgery'),
+(0, 'CSRF where token validation depends on token being present', 'Cross-site request forgery'),
+(0, 'CSRF where token is not tied to user session', 'Cross-site request forgery'),
+(0, 'CSRF where token is tied to non-session cookie', 'Cross-site request forgery'),
+(0, 'CSRF where token is duplicated in cookie', 'Cross-site request forgery'),
+(0, 'SameSite Lax bypass via method override', 'Cross-site request forgery'),
+(0, 'SameSite Strict bypass via client-side redirect', 'Cross-site request forgery'),
+(0, 'SameSite Strict bypass via sibling domain', 'Cross-site request forgery'),
+(0, 'SameSite Lax bypass via cookie refresh', 'Cross-site request forgery'),
+(0, 'CSRF where Referer validation depends on header being present', 'Cross-site request forgery'),
+(0, 'CSRF with broken Referer validation', 'Cross-site request forgery');
+
+
+INSERT INTO todos (completed, description, title)
+VALUES 
+(0, 'Basic clickjacking with CSRF token protection', 'Clickjacking'),
+(0, 'Clickjacking with form input data prefilled from a URL parameter', 'Clickjacking'),
+(0, 'Clickjacking with a frame buster script', 'Clickjacking'),
+(0, 'Exploiting clickjacking vulnerability to trigger DOM-based XSS', 'Clickjacking'),
+(0, 'Multistep clickjacking', 'Clickjacking');
+
+INSERT INTO todos (completed, description, title)
+VALUES 
+(0, 'CORS vulnerability with basic origin reflection', 'Cross-origin resource sharing'),
+(0, 'CORS vulnerability with trusted null origin', 'Cross-origin resource sharing'),
+(0, 'CORS vulnerability with trusted insecure protocols', 'Cross-origin resource sharing'),
+(0, 'CORS vulnerability with internal network pivot attack', 'Cross-origin resource sharing');
+
+
