@@ -90,7 +90,5 @@ public class TodoController {
         return ResponseEntity.ok(todos);
     }
 
-
-
 }
 

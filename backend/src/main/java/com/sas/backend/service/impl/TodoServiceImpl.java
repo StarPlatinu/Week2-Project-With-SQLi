@@ -75,7 +75,7 @@ public class TodoServiceImpl implements TodoService {
     public void deleteTodo(Long id) throws NotFoundException {
 
         Todo todo = todoRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(CustomError.builder().code("404").message("User not found at  "+id+"\n select completed,description,title from todos where id = "+id).build()));
+                .orElseThrow(() -> new NotFoundException(CustomError.builder().code("404").message("User not found at  "+id+" \n delete from todos where id = "+id).build()));
 
         todoRepository.deleteById(id);
     }

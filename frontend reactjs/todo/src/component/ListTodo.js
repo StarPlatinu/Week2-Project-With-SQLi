@@ -102,8 +102,10 @@ const ListTodo = () => {
         <p>Todo List không chỉ là ứng dụng quản lý công việc, mà còn là người bạn đồng hành trong hành trình đạt được mục tiêu và biến giấc mơ thành hiện thực!</p>
         </div>
       </div>
+
         <div className='m-5'>
         <button className='btn btn-primary mb-2' onClick={addNewTodo}><FontAwesomeIcon icon={faCirclePlus} />Add Todo</button>
+        
         <div className='d-flex justify-content-center m-3'>
                 <div className='col-md-6'></div>
                 <input
