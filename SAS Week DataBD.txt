@@ -1,4 +1,7 @@
 Create schema week2;
+
+insert into week2.roles values(1, "ROLE_ADMIN"),(2,"ROLE_USER");
+
 use week2;
 INSERT INTO todos (completed, description, title)
 VALUES 
