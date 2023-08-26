@@ -7,7 +7,7 @@ import TodoComponent from './component/ToDoComponent'
 import Register from './component/Register'
 import Login from './component/Login'
 import { isUserLoggedIn } from './service/AuthService'
-
+import CommentList from './component/CommentList'
 
 function App() {
   function AuthenticatedRoute({children}){
@@ -31,6 +31,7 @@ function App() {
         <Route path="/add-todo" element={<TodoComponent />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/comments" element={<CommentList />} />
       
       </Routes>
     </BrowserRouter>

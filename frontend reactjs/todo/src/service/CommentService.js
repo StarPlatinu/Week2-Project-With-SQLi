@@ -1,6 +1,7 @@
 import axios from "axios";
+import { getToken } from "./AuthService";
 
-const AUTH_REST_API_BASE_URL = "http://localhost:9090/api/comments"
+const BASE_REST_API_URL = "http://localhost:9090/api/comments"
 
 axios.interceptors.request.use(function (config) {
     
@@ -13,5 +14,9 @@ axios.interceptors.request.use(function (config) {
   
   });
   
-  export const getAllComments = () => axios.get(BASE_REST_API_URL)
-  
+export const getAllComments = () => axios.get(BASE_REST_API_URL)
+
+export const saveComment = (comment) => axios.post(BASE_REST_API_URL, comment)
+
+export const deleteComment = (id) => axios.delete(BASE_REST_API_URL + '/' + id)
+

@@ -40,7 +40,7 @@ public class CommentController {
 
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping
-    public ResponseEntity<List<Comment>> getAllTodos(){
+    public ResponseEntity<List<Comment>> getAllComments(){
         List<Comment> comments = commentService.getAllComments();
         //return new ResponseEntity<>(todos, HttpStatus.OK);
         return ResponseEntity.ok(comments);

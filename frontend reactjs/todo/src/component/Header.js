@@ -4,6 +4,7 @@ import { isUserLoggedIn, logout } from '../service/AuthService'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
 const Header = () => {
 
     const isAuth = isUserLoggedIn();
@@ -30,9 +31,16 @@ const Header = () => {
                         {
                             isAuth &&                         
                             <li className='nav-item'>
-                            <NavLink to="/todos" className="nav-link"><FontAwesomeIcon icon={faCoffee} /></NavLink>
+                            <NavLink to="/todos" className="nav-link"><FontAwesomeIcon icon={faCoffee} /> Todo List</NavLink>                
                         </li>
                         }
+
+                   {
+                        isAuth &&    
+                        <li className='nav-item'>
+                        <NavLink to="/comments" className="nav-link"><FontAwesomeIcon icon={faUserGroup} /> Comment</NavLink>
+                    </li>
+                    }
 
                     </ul>
 
@@ -50,7 +58,7 @@ const Header = () => {
                         <li className='nav-item'>
                         <NavLink to="/login" className="nav-link">Login</NavLink>
                     </li>
-                    }
+                    }           
 
                     {
                         isAuth &&    
@@ -58,7 +66,7 @@ const Header = () => {
                         <div className="m-1 d-flex">
                         <NavLink to="/login" className="nav-link" onClick={handleLogout}>Logout</NavLink>
                         
-                      <img src="https://picsum.photos/40" class="img-fluid page-header rounded-circle" alt="Responsive image" />
+                      <img src="https://picsum.photos/40" className="img-fluid page-header rounded-circle" alt="Responsive image" />
                         </div>
                     </li>
                     }
