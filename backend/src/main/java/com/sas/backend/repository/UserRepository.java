@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface
 UserRepository extends JpaRepository<User, Long> {
+    User getUserByUsername(String username);
     // Using string concatenation (not recommended for security reasons)
     @Query(value = "SELECT * FROM users WHERE username "+" ?1", nativeQuery = true)
     Optional<User> findByUsername(String username);
