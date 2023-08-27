@@ -8,7 +8,7 @@ import Register from './component/Register'
 import Login from './component/Login'
 import { isUserLoggedIn } from './service/AuthService'
 import CommentList from './component/CommentList'
-
+import Eval from './component/eval'
 function App() {
   function AuthenticatedRoute({children}){
 
@@ -32,7 +32,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/comments" element={<CommentList />} />
-      
+        <Route path="/eval" element={<Eval />} />
       </Routes>
     </BrowserRouter>
   );

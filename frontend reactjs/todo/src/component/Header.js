@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { faPoo } from '@fortawesome/free-solid-svg-icons'
 const Header = () => {
 
     const isAuth = isUserLoggedIn();
@@ -39,6 +40,13 @@ const Header = () => {
                         isAuth &&    
                         <li className='nav-item'>
                         <NavLink to="/comments" className="nav-link"><FontAwesomeIcon icon={faUserGroup} /> Comment</NavLink>
+                    </li>
+                    }
+                    
+                   {
+                        isAuth &&    
+                        <li className='nav-item'>
+                        <NavLink to="/eval" className="nav-link"><FontAwesomeIcon icon={faPoo} /> Eval</NavLink>
                     </li>
                     }
 
