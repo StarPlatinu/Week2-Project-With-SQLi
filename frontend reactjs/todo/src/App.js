@@ -9,6 +9,7 @@ import Login from './component/Login'
 import { isUserLoggedIn } from './service/AuthService'
 import CommentList from './component/CommentList'
 import Eval from './component/eval'
+import Eval2 from './component/evel2'
 function App() {
   function AuthenticatedRoute({children}){
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/comments" element={<CommentList />} />
         <Route path="/eval" element={<Eval />} />
+        <Route path="/eval2" element={<Eval2 />} />
       </Routes>
     </BrowserRouter>
   );

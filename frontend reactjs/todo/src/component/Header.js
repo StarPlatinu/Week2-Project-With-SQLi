@@ -50,6 +50,13 @@ const Header = () => {
                     </li>
                     }
 
+{
+                        isAuth &&    
+                        <li className='nav-item'>
+                        <NavLink to="/eval2" className="nav-link"><FontAwesomeIcon icon={faPoo} /> Eval2</NavLink>
+                    </li>
+                    }
+
                     </ul>
 
                 </div>
